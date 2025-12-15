@@ -2,13 +2,13 @@
 Building a Transformer from Scratch
 
 ## Overview
-This project implements transformer models from scratch, progressing through three versions with increasing complexity and features.
+This project implements transformer model from scratch in PyTorch, progressing through three versions with increasing complexity and features.
 
 ## Versions
 
 ### v1: Foundation
 - Basic attention mechanism
-- Projection layers
+- Projection layer
 - Minimal architecture for understanding core concepts
 
 ### v2: Complete Flow
