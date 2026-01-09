@@ -6,22 +6,35 @@ This project implements transformer model from scratch in PyTorch, progressing t
 
 ## Versions
 
-### v1: Foundation
+### [v0](v0): Foundation
 - Basic attention mechanism
 - Projection layer
 - Minimal architecture for understanding core concepts
 
-### v2: Complete Flow
+### [v1](v1): Complete Flow
 - Single attention head
 - Single transformer block
 - Full forward pass pipeline
 - Foundation for scaling
 
-### v3: Production Architecture
+### [v2](v2): Production Architecture
 - Multi-head attention
 - Multiple stacked blocks
 - Complete transformer architecture
 - Optimized for performance
+
+## [tokenizer](tokenizer)
+
+- **Purpose:** Implements a simple BPE-style byte-pair encoding over UTF-8 bytes. `tokenizer.py` provides `encode(text)` and `decode(token_ids)` utilities that apply merges from `merges_spl.json`.
+- **Building merges:** Run `bpe.py` to build merges from the dataset (it reads `corpus.txt`). `bpe.py` writes `merges.json` which can be used directly by `tokenizer.py`.
+- **Usage (example):**
+
+```python
+from tokenizer.tokenizer import encode, decode
+
+ids = encode("Hello World")
+text = decode(ids)
+```
 
 ## Dataset
 Custom-prepared date conversion dataset used for training and evaluation across all versions.
@@ -52,16 +65,3 @@ scratch_former/
     └── test.ipynb      # Jupyter notebook for testing v2 model
 ```
 
-## Tokenizer
-
-- **Location:** [scratch_former/tokenizer](scratch_former/tokenizer)
-- **Purpose:** Implements a simple BPE-style byte-pair encoding over UTF-8 bytes. `tokenizer.py` provides `encode(text)` and `decode(token_ids)` utilities that apply merges from `merges_spl.json`.
-- **Building merges:** Run `bpe.py` to build merges from the dataset (it reads `corpus.txt`). `bpe.py` writes `merges.json` which can be used directly by `tokenizer.py`.
-- **Usage (example):**
-
-```python
-from tokenizer.tokenizer import encode, decode
-
-ids = encode("Hello World")
-text = decode(ids)
-```
